@@ -1,0 +1,40 @@
+<!--
+ * @Autor: Wentao Lin
+ * @Description: Home page
+ * @Date: 2020-12-23 20:34:48
+ * @LastEditTime: 2020-12-30 16:33:28
+ * @LastEditors: Wentao Lin
+-->
+
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container content-area">
+    <div class="username-wrapper">
+        {% if username == '' or username == None %}
+        <h1 style="color: red;">Haven't Login</h1>
+        {% else %}
+        <h1>Username: <small>{{username}}</small></h1>
+        {% endif %}
+    </div>
+    <div class="module-container">
+        <div class="row">
+            {% for order in orders %}
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 good-list">
+                <div class="thumbnail">
+                    <img class="table-bordered" src="{{good.image}}" alt="{{good.title}}">
+                    <div class="caption">
+                        <h3 style="color: red;">${{good.price}}</h3>
+                        <p>{{good.title}}</p>
+                        <p class="text-right cart-info">
+                            inventory:{{good.number}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

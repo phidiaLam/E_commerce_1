@@ -1,0 +1,142 @@
+<!--
+ * @Autor: Wentao Lin
+ * @Description: The base of other html file
+ * @Date: 2020-12-23 14:42:41
+ * @LastEditTime: 2020-12-30 17:17:40
+ * @LastEditors: Wentao Lin
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>University application</title>
+    {% endif %}
+
+    <!-- Bootstrap -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/main.min.css" rel="stylesheet">
+    {% block css %}{% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-bg navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand font-white" href="/">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav font-white">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false">Classify <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/home_appliances">home appliances</a></li>
+                            <li><a href="/kitchen_ware">kitchen ware</a></li>
+                            <li><a href="/garden_stuff">garden stuff</a></li>
+                            <li><a href="/clothes">clothes</a></li>
+                            <li><a href="/books">books</a></li>
+                            <li><a href="/drinks">drinks</a></li>
+                            <li><a href="/furniture">furniture</a></li>
+                            <li><a href="/toys">toys</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/mypage">My Page</a></li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div id="search-input" class="form-group input-width">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <a href="https://www.baidu.com/" id="search-link">
+                        <input id="search-button" type="button" class="btn btn-default" value="Search">
+                        </input>
+                    </a>
+
+                </form>
+                <ul class="nav navbar-nav navbar-right font-white">
+                    <a href="/shopping_cart" type="button" class="btn btn-default navbar-btn">
+                        <span class="glyphicon glyphicon-shopping-cart"></span>
+                        Shopping cart ( {{number_cart}} )
+                    </a>
+                    <button type="button" id="loginBntId" class="btn btn-default navbar-btn" target='0'>
+                        <span class="glyphicon glyphicon-user"></span>
+                        Sign in
+                    </button>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+
+    {% block content %}{% endblock %}
+
+    <div class="modal fade" id="loginModalId" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/setcookie" method="post" name="login">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            ×
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">登录提示：</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon3">帐号：</span>
+                            <input type="text" name="username" class="input-sm" id="loginUser" aria-describedby="basic-addon3"
+                                placeholder="Username">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon3">密码：</span>
+                            <input type="password" name="pwd" class="input-sm" id="loginPassword" aria-describedby="basic-addon3"
+                                placeholder="Password">
+                        </div>
+                        <a href="/sign-up" class="sign-up">sign up</a>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel"></input>
+                        <input type="submit" class="btn btn-primary" id="loginModalYesId" value="Submit"></input>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <p class="alert_windows">
+        <span class="cookie-header">Cookie Accept</span>
+        <span class="cookie-splite"></span>
+        <span class="cookie-content">&nbsp&nbsp&nbsp We use cookies and similar tools to enhance your shopping
+            experience, to provide our
+            services, understand how customers use our services so we can make improvements, and
+            display ads. Approved third parties also use these tools in connection with our display of
+            ads.
+        </span>
+    </p>
+
+</body>
+
+<script src="../static/js/jquery.min.js"></script>
+<script src="../static/js/jquery.cookie.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/main.min.js"></script>
+
+</html>

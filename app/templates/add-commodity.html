@@ -1,0 +1,61 @@
+<!--
+ * @Autor: Wentao Lin
+ * @Description: Home page
+ * @Date: 2020-12-23 20:34:48
+ * @LastEditTime: 2020-12-30 15:10:36
+ * @LastEditors: Wentao Lin
+-->
+
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container content-area">
+    <div class="username-wrapper">
+        {% if username == '' or username == None %}
+        <h1 style="color: red;">Haven't Login</h1>
+        {% else %}
+        <h1>Username: <small>{{username}}</small></h1>
+        {% endif %}
+    </div>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form class="form-signin" action="" method="post" name="address" enctype="multipart/form-data">
+        <h2 class="form-signin-heading">Please create commodity</h2>
+        {{ form.csrf_token }}
+        <label for="image">Select Image</label>
+        {{ form.image }}
+        <div style="color: red;">
+            {{ form.image.errors.0 }}
+        </div>
+        <br>
+        <label for="title">Title</label>
+        {{ form.title(class='form-control') }}
+        <br>
+        <label for="price">Unit Price</label>
+        {{ form.price(class='form-control') }}
+        <div style="color: red;">
+            {{ form.price.errors.0 }}
+        </div>
+        <br>
+        <label for="number">Number</label>
+        {{ form.number(class='form-control') }}
+        <div style="color: red;">
+            {{ form.number.errors.0 }}
+        </div>
+        <br>
+        <label for="classify">Classify</label>
+        {{ form.classify(class='form-control') }}
+        <br>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+    </form>
+</div>
+{% endblock %}

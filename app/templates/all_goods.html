@@ -1,0 +1,45 @@
+<!--
+ * @Autor: Wentao Lin
+ * @Description: Home page
+ * @Date: 2020-12-23 20:34:48
+ * @LastEditTime: 2020-12-30 16:24:14
+ * @LastEditors: Wentao Lin
+-->
+
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger alert-place">
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="container content-area">
+    <div class="row">
+        {% for good in goods %}
+        <form action="" method="post" name="cart">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 good-list">
+                <div class="thumbnail">
+                    <img class="table-bordered" src="{{good.image}}" alt="{{good.title}}">
+                    <div class="caption">
+                        <h3 style="color: red;">${{good.price}}</h3>
+                        <p>{{good.title}}</p>
+                        <p class="text-right cart-button">
+                            <input type="hidden" name="good_id" value="{{good.goodsId}}">
+                            <input class="btn btn-primary" type="submit" value="Add to shopping cart"></input>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

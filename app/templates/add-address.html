@@ -1,0 +1,46 @@
+<!--
+ * @Autor: Wentao Lin
+ * @Description: Home page
+ * @Date: 2020-12-23 20:34:48
+ * @LastEditTime: 2020-12-27 18:00:46
+ * @LastEditors: Wentao Lin
+-->
+
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container content-area">
+    <div class="username-wrapper">
+        {% if username == '' or username == None %}
+        <h1 style="color: red;">Haven't Login</h1>
+        {% else %}
+        <h1>Username: <small>{{username}}</small></h1>
+        {% endif %}
+    </div>
+    <form class="form-signin" action="" method="post" name="address">
+        <h2 class="form-signin-heading">Please add address</h2>
+        {{ form.csrf_token }}
+        <label for="house">House number</label>
+        {{ form.house(class='form-control') }}
+        <br>
+        <label for="street">Street</label>
+        {{ form.street(class='form-control') }}
+        <br>
+        <label for="city">City</label>
+        {{ form.city(class='form-control') }}
+        <br>
+        <label for="city">Province</label>
+        {{ form.province(class='form-control') }}
+        <br>
+        <label for="city">Country</label>
+        {{ form.country(class='form-control') }}
+        <br>
+        <label for="city">Postcode</label>
+        {{ form.postcode(class='form-control') }}
+        <br>
+       
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+    </form>
+</div>
+    {% endblock %}

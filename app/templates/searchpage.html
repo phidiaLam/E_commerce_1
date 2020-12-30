@@ -1,0 +1,22 @@
+<!--
+ * @Autor: Wentao Lin
+ * @Description: Home page
+ * @Date: 2020-12-23 20:34:48
+ * @LastEditTime: 2020-12-30 17:17:19
+ * @LastEditors: Wentao Lin
+-->
+
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block css %}
+<link href="../static/css/search.min.css" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="search-box">
+    <input class="search-txt" type="text" name="" placeholder="Type to search">
+    <button class="search-btn">
+        <i class="glyphicon glyphicon-search"></i>
+    </button>
+</div>
+
+{% endblock %}

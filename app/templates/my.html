@@ -1,0 +1,56 @@
+<!--
+ * @Autor: Wentao Lin
+ * @Description: Home page
+ * @Date: 2020-12-23 20:34:48
+ * @LastEditTime: 2020-12-30 16:30:59
+ * @LastEditors: Wentao Lin
+-->
+
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container content-area">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="username-wrapper">
+            {% if username == '' or username == None %}
+            <h1 style="color: red;">Haven't Login</h1>
+            {% else %}
+            <h1>Username: <small>{{username}}</small></h1>
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-6 col-lg-4 space">
+                <a href="/shopping_cart"><button class="mypage-button">Shopping Cart</button></a>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4 space">
+                <a href="/order"><button class="mypage-button">My Order</button></a>
+            </div>
+            {% if sell == True %}
+            <div class="col-sm-6 col-md-6 col-lg-4 space">
+                <a href="/create_commodity"><button class="mypage-button">Create commodity</button></a>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4 space">
+                <a href="/show_commodity"><button class="mypage-button">My commodity</button></a>
+            </div>
+            {% endif %}
+            <div class="col-sm-6 col-md-6 col-lg-4 space">
+                <a href="/add_address"><button class="mypage-button">Add my address</button></a>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4 space">
+                <a href="/show_addresses"><button class="mypage-button">Show my address</button></a>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-4 space">
+                <a href="/change_password"><button class="mypage-button">Change your password</button></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

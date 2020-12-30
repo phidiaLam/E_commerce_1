@@ -1,0 +1,36 @@
+<!--
+ * @Autor: Wentao Lin
+ * @Description: Home page
+ * @Date: 2020-12-23 20:34:48
+ * @LastEditTime: 2020-12-30 15:08:46
+ * @LastEditors: Wentao Lin
+-->
+
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container content-area">
+    <div class="username-wrapper">
+        {% if username == '' or username == None %}
+        <h1 style="color: red;">Haven't Login</h1>
+        {% else %}
+        <h1>Username: <small>{{username}}</small></h1>
+        {% endif %}
+    </div>
+    <div class="row">
+        {% for address in addresses %}
+        <form action="" method="post" name="delete-address">
+            <div class="col-sm-12 col-md-12 col-lg-6 space">
+                <div class="address">
+                    <h2>Address {{ loop.index }}: <small>{{address.place}}</small></h2>
+
+                    <input type="hidden" name="id" value="{{address.addressId}}">
+                    <input type="submit" value="Delete">
+                </div>
+            </div>
+        </form>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
