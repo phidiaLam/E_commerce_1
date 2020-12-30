@@ -2,7 +2,7 @@
 Autor: Wentao Lin
 Description: 
 Date: 2020-12-26 12:35:14
-LastEditTime: 2020-12-30 22:20:39
+LastEditTime: 2020-12-31 00:55:28
 LastEditors: Wentao Lin
 '''
 
@@ -631,6 +631,7 @@ def shopping_cart():
                 good = Goods.query.filter(Goods.goodsId == id).first()
                 user.goods.remove(good)
                 db.session.commit()
+                return redirect("/shopping_cart")
             return redirect("/order")
     return render_template("shopping-cart.html",
                             title = "Shopping cart",
