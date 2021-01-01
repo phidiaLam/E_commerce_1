@@ -2,7 +2,7 @@
 Autor: Wentao Lin
 Description: 
 Date: 2020-12-26 12:35:14
-LastEditTime: 2021-01-01 14:43:29
+LastEditTime: 2021-01-01 20:47:30
 LastEditors: Wentao Lin
 '''
 
@@ -730,7 +730,8 @@ def search_page():
             number_cart += 1
     return render_template("searchpage.html",
                             title = "Search Page",
-                            number_cart = number_cart
+                            number_cart = number_cart,
+                            type = "search"
                             )
                 
 @app.route("/order")
