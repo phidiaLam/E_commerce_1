@@ -2,7 +2,7 @@
  * @Autor: Wentao Lin
  * @Description: Home page
  * @Date: 2020-12-23 20:34:48
- * @LastEditTime: 2020-12-30 15:11:39
+ * @LastEditTime: 2021-01-02 00:55:21
  * @LastEditors: Wentao Lin
 -->
 
@@ -13,7 +13,7 @@
 <div class="container content-area">
     <div class="username-wrapper">
         {% if username == '' or username == None %}
-        <h1 style="color: red;">Haven't Login</h1>
+        <h1 class="style-red">Haven't Login</h1>
         {% else %}
         <h1>Username: <small>{{username}}</small></h1>
         {% endif %}
@@ -28,7 +28,7 @@
                 <div class="thumbnail">
                     <img class="table-bordered" src="{{good.image}}" alt="{{good.title}}">
                     <div class="caption">
-                        <h3 style="color: red;" class="price">
+                        <h3 class="style-red" class="price">
                             <span>$</span>
                             <span class="price_child">{{good.price}}</span>
                         </h3>

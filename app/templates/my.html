@@ -2,7 +2,7 @@
  * @Autor: Wentao Lin
  * @Description: Home page
  * @Date: 2020-12-23 20:34:48
- * @LastEditTime: 2020-12-30 16:30:59
+ * @LastEditTime: 2021-01-02 00:55:12
  * @LastEditors: Wentao Lin
 -->
 
@@ -22,7 +22,7 @@
         {% endwith %}
         <div class="username-wrapper">
             {% if username == '' or username == None %}
-            <h1 style="color: red;">Haven't Login</h1>
+            <h1 class="style-red">Haven't Login</h1>
             {% else %}
             <h1>Username: <small>{{username}}</small></h1>
             {% endif %}

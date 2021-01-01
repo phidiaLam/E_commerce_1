@@ -2,7 +2,7 @@
  * @Autor: Wentao Lin
  * @Description: Home page
  * @Date: 2020-12-23 20:34:48
- * @LastEditTime: 2020-12-30 15:10:36
+ * @LastEditTime: 2021-01-02 00:54:48
  * @LastEditors: Wentao Lin
 -->
 
@@ -13,7 +13,7 @@
 <div class="container content-area">
     <div class="username-wrapper">
         {% if username == '' or username == None %}
-        <h1 style="color: red;">Haven't Login</h1>
+        <h1 class="style-red">Haven't Login</h1>
         {% else %}
         <h1>Username: <small>{{username}}</small></h1>
         {% endif %}
@@ -32,7 +32,7 @@
         {{ form.csrf_token }}
         <label for="image">Select Image</label>
         {{ form.image }}
-        <div style="color: red;">
+        <div class="style-red">
             {{ form.image.errors.0 }}
         </div>
         <br>
@@ -41,13 +41,13 @@
         <br>
         <label for="price">Unit Price</label>
         {{ form.price(class='form-control') }}
-        <div style="color: red;">
+        <div class="style-red">
             {{ form.price.errors.0 }}
         </div>
         <br>
         <label for="number">Number</label>
         {{ form.number(class='form-control') }}
-        <div style="color: red;">
+        <div class="style-red">
             {{ form.number.errors.0 }}
         </div>
         <br>
