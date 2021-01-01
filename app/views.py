@@ -2,7 +2,7 @@
 Autor: Wentao Lin
 Description: 
 Date: 2020-12-26 12:35:14
-LastEditTime: 2020-12-31 16:30:57
+LastEditTime: 2021-01-01 14:43:29
 LastEditors: Wentao Lin
 '''
 
@@ -333,8 +333,11 @@ def create_commodity():
         if form.validate_on_submit():
             i = form.image.data
             filename = random_filename(i.filename)
-            app.info.debug("Change the name from " + i.filename + ' to ' + filename + "successfully")
+            app.logger.debug("Change the name from " + i.filename + ' to ' + filename + "successfully")
             basepath = os.path.dirname(__file__)
+            dirs = os.path.join(basepath, 'static/img/upload')
+            if not os.path.exists(dirs):
+                os.makedirs(dirs)
             upload_path = os.path.join(basepath, 'static/img/upload',secure_filename(filename))
             i.save(upload_path)
             upload_path = 'static/img/upload/' + filename

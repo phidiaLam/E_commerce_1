@@ -1,0 +1,8 @@
+/__pycache__
+/.vscode
+/app.db
+/migrations
+/app/__pycache__
+/app/static/img/upload/
+/errors.log
+/debug.log
