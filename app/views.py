@@ -2,7 +2,7 @@
 Autor: Wentao Lin
 Description: 
 Date: 2020-12-26 12:35:14
-LastEditTime: 2021-01-01 20:47:30
+LastEditTime: 2021-01-01 22:10:18
 LastEditors: Wentao Lin
 '''
 
@@ -380,23 +380,23 @@ def change_password():
         sell = False
     else:
         sell = user.sell
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            if user.password == form.password.data:
-                user.password = form.new_password.data
-                # Decide if user want to sell something
-                sell = request.values.getlist("sell")
-                if sell == ["sell-goods"]:
-                    user.sell = True
-                db.session.add(user)
-                db.session.commit()
-                flash("Change password success!")
-                app.logger.info(username + "Change password success!")
-                return redirect('/mypage')
-            else:
-                flash("The password is wrong!")
-                app.logger.warning("The '"+ username +"' password is wrong")
-                return redirect('/change_password')
+        if request.method == 'POST':
+            if form.validate_on_submit():
+                if user.password == form.password.data:
+                    user.password = form.new_password.data
+                    # Decide if user want to sell something
+                    sell = request.values.getlist("sell")
+                    if sell == ["sell-goods"]:
+                        user.sell = True
+                    db.session.add(user)
+                    db.session.commit()
+                    flash("Change password success!")
+                    app.logger.info(username + "Change password success!")
+                    return redirect('/mypage')
+                else:
+                    flash("The password is wrong!")
+                    app.logger.warning("The '"+ username +"' password is wrong")
+                    return redirect('/change_password')
         app.logger.warning("Change_password form validation failed")
     return render_template('change-password.html',
                             form = form,
