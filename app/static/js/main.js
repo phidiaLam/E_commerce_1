@@ -2,7 +2,7 @@
  * @Autor: Wentao Lin
  * @Description: 
  * @Date: 2020-12-23 19:18:54
- * @LastEditTime: 2020-12-30 16:17:23
+ * @LastEditTime: 2021-01-03 21:26:14
  * @LastEditors: Wentao Lin
  */
 
@@ -102,10 +102,9 @@ $(document).ready(function () {
 });
 
 $(window).load(function () {
-    var list = $('.price')
     var number = 0
-    list.each(function(){
-        number += parseInt($(this).children().last().text())
+    $('.price_child').each(function(){
+        number += parseInt($(this).text())
     })
     $(".class-show").children().last().text(number)
 });
