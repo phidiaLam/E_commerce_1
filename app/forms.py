@@ -2,7 +2,7 @@
 Autor: Wentao Lin
 Description: 
 Date: 2020-12-26 12:37:23
-LastEditTime: 2020-12-30 16:11:26
+LastEditTime: 2021-01-03 19:27:26
 LastEditors: Wentao Lin
 '''
 
@@ -21,7 +21,7 @@ class Signup(FlaskForm):
     password = PasswordField('password', render_kw={'placeholder': 'Password'},
                                         validators=[
                                                     DataRequired(message='password cannot be empty'),
-                                                    Length(min=4, max=10, message='the length of password between to in 4 to 10')
+                                                    Length(min=4, max=10, message='the length of password between 4 to 10')
                                                     ])
     re_password = PasswordField('re_password',  render_kw={'placeholder': 'Confirm Password'},
                                             validators=[
